@@ -4,6 +4,7 @@ class PayboxSystemNotificationTest < Test::Unit::TestCase
   include ActiveMerchant::Billing::Integrations
 
   def setup
+    ActiveMerchant::Billing::Base.mode = :test
     @paybox_system = PayboxSystem::Notification.new(http_raw_data)
   end
 

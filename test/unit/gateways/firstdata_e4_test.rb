@@ -52,7 +52,7 @@ class FirstdataE4Test < Test::Unit::TestCase
     assert response = @gateway.store(@credit_card, @options)
     assert_success response
     assert_equal '8938737759041111', response.params['transarmor_token']
-    assert_equal '8938737759041111;visa;Longbob;Longsen;9;2014', response.authorization
+    assert_equal '8938737759041111;visa;Longbob;Longsen;9;2015', response.authorization
   end
 
   def test_failed_store_without_transarmor_support
