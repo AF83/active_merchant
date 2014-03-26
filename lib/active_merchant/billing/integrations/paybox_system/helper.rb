@@ -87,6 +87,7 @@ module ActiveMerchant #:nodoc:
               :PBX_REFUSE => fields['PBX_REFUSE'],
               :PBX_ANNULE => fields['PBX_ANNULE'],
               :PBX_REPONDRE_A => fields['PBX_REPONDRE_A'],
+              :PBX_PBX_TYPECARTE => fields['PBX_TYPECARTE'],
               :PBX_HASH => fields['PBX_HASH'],
               :PBX_TIME => fields['PBX_TIME'],
             }
