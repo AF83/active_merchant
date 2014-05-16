@@ -46,10 +46,11 @@ module ActiveMerchant #:nodoc:
           service_class = integration_module.const_get('Helper')
 
           form_options = options.delete(:html) || {}
+          service_url  = options.delete(:service_url) || integration_module.service_url
           service = service_class.new(order, account, options)
           form_options[:method] = service.form_method
           result = []
-          result << form_tag(integration_module.service_url, form_options)
+          result << form_tag(service_url, form_options)
 
           result << capture(service, &proc)
 
