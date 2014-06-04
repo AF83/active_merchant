@@ -92,7 +92,9 @@ module ActiveMerchant #:nodoc:
             public_key = OpenSSL::PKey::RSA.new(paybox_public_key)
 
             acknowledge_params = "amount=#{params['amount']}&reference=#{params['reference']}&autorization=#{params['autorization']}&error=#{params['error']}"
-            public_key.verify(digest, Base64.decode64(params['sign']), acknowledge_params)
+            public_key.verify(digest, Base64.decode64(params['sign']), acknowledge_params).tap do
+              OpenSSL.errors  # Flush SSL errors to avoid leaking them to ActiveRecord...
+            end
           end
 
           private
